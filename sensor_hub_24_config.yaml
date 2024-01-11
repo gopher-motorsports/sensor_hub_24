@@ -1,0 +1,90 @@
+
+module_name: "example_sensor_hub"
+
+buckets:
+    bucket_0:
+        # NOTE: frequency will be converted to an integer number of ms for a delay
+        frequency_hz: 250
+        parameters:
+            # these must directly be a variable defined in GopherCAN
+            voltageSensor1_V:
+                ADC: ADC1_IN10
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+            
+            voltageSensor2_V:
+                ADC: ADC1_IN11
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor3_V:
+                ADC: ADC1_IN12
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor4_V:
+                ADC: ADC1_IN13
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor5_V:
+                ADC: ADC1_IN4
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor6_V:
+                ADC: ADC1_IN5
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+            
+            voltageSensor7_V:
+                ADC: ADC1_IN6
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor8_V:
+                ADC: ADC1_IN7
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor9_V:
+                ADC: ADC1_IN14
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor10_V:
+                ADC: ADC1_IN15
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+            
+            voltageSensor11_V:
+                ADC: ADC1_IN8
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor12_V:
+                ADC: ADC1_IN9
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            pulseSensor1_V:
+                ADC: NON_ADC 
+                sensor: NON_ADC
+                samples_buffered: 2
+
+            pulseSensor2_V:
+                ADC: NON_ADC
+                sensor: NON_ADC
+                samples_buffered: 2
+            
+            pulseSensor3_V:
+                ADC: NON_ADC
+                sensor: NON_ADC
+                samples_buffered: 2
+
+            pulseSensor4_V:
+                ADC: NON_ADC
+                sensor: NON_ADC
+                samples_buffered: 2
+                
+
