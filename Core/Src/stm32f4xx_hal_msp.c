@@ -20,14 +20,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 extern DMA_HandleTypeDef hdma_adc1;
-
-extern DMA_HandleTypeDef hdma_tim2_up_ch3;
-
-extern DMA_HandleTypeDef hdma_tim2_ch2_ch4;
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
@@ -102,26 +99,36 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
 
     __HAL_RCC_GPIOC_CLK_ENABLE();
     __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
     /**ADC1 GPIO Configuration
     PC0     ------> ADC1_IN10
     PC1     ------> ADC1_IN11
     PC2     ------> ADC1_IN12
     PC3     ------> ADC1_IN13
+    PA4     ------> ADC1_IN4
+    PA5     ------> ADC1_IN5
     PA6     ------> ADC1_IN6
     PA7     ------> ADC1_IN7
     PC4     ------> ADC1_IN14
     PC5     ------> ADC1_IN15
+    PB0     ------> ADC1_IN8
+    PB1     ------> ADC1_IN9
     */
-    GPIO_InitStruct.Pin = VS_04_Pin|VS_01_Pin|VS_02_Pin|VS_03_Pin
-                          |VS_08_Pin|VS_05_Pin;
+    GPIO_InitStruct.Pin = VS_01_Pin|VS_02_Pin|VS_03_Pin|VS_04_Pin
+                          |VS_09_Pin|VS_10_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = VS_07_Pin|VS_06_Pin;
+    GPIO_InitStruct.Pin = VS_05_Pin|VS_06_Pin|VS_07_Pin|VS_08_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = VS_11_Pin|VS_12_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
     /* ADC1 DMA Init */
     /* ADC1 Init */
@@ -170,15 +177,21 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     PC1     ------> ADC1_IN11
     PC2     ------> ADC1_IN12
     PC3     ------> ADC1_IN13
+    PA4     ------> ADC1_IN4
+    PA5     ------> ADC1_IN5
     PA6     ------> ADC1_IN6
     PA7     ------> ADC1_IN7
     PC4     ------> ADC1_IN14
     PC5     ------> ADC1_IN15
+    PB0     ------> ADC1_IN8
+    PB1     ------> ADC1_IN9
     */
-    HAL_GPIO_DeInit(GPIOC, VS_04_Pin|VS_01_Pin|VS_02_Pin|VS_03_Pin
-                          |VS_08_Pin|VS_05_Pin);
+    HAL_GPIO_DeInit(GPIOC, VS_01_Pin|VS_02_Pin|VS_03_Pin|VS_04_Pin
+                          |VS_09_Pin|VS_10_Pin);
 
-    HAL_GPIO_DeInit(GPIOA, VS_07_Pin|VS_06_Pin);
+    HAL_GPIO_DeInit(GPIOA, VS_05_Pin|VS_06_Pin|VS_07_Pin|VS_08_Pin);
+
+    HAL_GPIO_DeInit(GPIOB, VS_11_Pin|VS_12_Pin);
 
     /* ADC1 DMA DeInit */
     HAL_DMA_DeInit(hadc->DMA_Handle);
@@ -289,62 +302,12 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
     PA2     ------> TIM2_CH3
     PA3     ------> TIM2_CH4
     */
-    GPIO_InitStruct.Pin = PS_04_Pin|PS_03_Pin;
+    GPIO_InitStruct.Pin = PS_04_Pin|PS_03_Pin|PS_02_Pin|PS_01_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = PS_02_Pin|PS_01_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    /* TIM2 DMA Init */
-    /* TIM2_UP_CH3 Init */
-    hdma_tim2_up_ch3.Instance = DMA1_Stream1;
-    hdma_tim2_up_ch3.Init.Channel = DMA_CHANNEL_3;
-    hdma_tim2_up_ch3.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_tim2_up_ch3.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_tim2_up_ch3.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_tim2_up_ch3.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-    hdma_tim2_up_ch3.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
-    hdma_tim2_up_ch3.Init.Mode = DMA_CIRCULAR;
-    hdma_tim2_up_ch3.Init.Priority = DMA_PRIORITY_LOW;
-    hdma_tim2_up_ch3.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    if (HAL_DMA_Init(&hdma_tim2_up_ch3) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    /* Several peripheral DMA handle pointers point to the same DMA handle.
-     Be aware that there is only one stream to perform all the requested DMAs. */
-    __HAL_LINKDMA(htim_base,hdma[TIM_DMA_ID_UPDATE],hdma_tim2_up_ch3);
-    __HAL_LINKDMA(htim_base,hdma[TIM_DMA_ID_CC3],hdma_tim2_up_ch3);
-
-    /* TIM2_CH2_CH4 Init */
-    hdma_tim2_ch2_ch4.Instance = DMA1_Stream6;
-    hdma_tim2_ch2_ch4.Init.Channel = DMA_CHANNEL_3;
-    hdma_tim2_ch2_ch4.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_tim2_ch2_ch4.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_tim2_ch2_ch4.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_tim2_ch2_ch4.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
-    hdma_tim2_ch2_ch4.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
-    hdma_tim2_ch2_ch4.Init.Mode = DMA_CIRCULAR;
-    hdma_tim2_ch2_ch4.Init.Priority = DMA_PRIORITY_LOW;
-    hdma_tim2_ch2_ch4.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    if (HAL_DMA_Init(&hdma_tim2_ch2_ch4) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    /* Several peripheral DMA handle pointers point to the same DMA handle.
-     Be aware that there is only one stream to perform all the requested DMAs. */
-    __HAL_LINKDMA(htim_base,hdma[TIM_DMA_ID_CC2],hdma_tim2_ch2_ch4);
-    __HAL_LINKDMA(htim_base,hdma[TIM_DMA_ID_CC4],hdma_tim2_ch2_ch4);
 
   /* USER CODE BEGIN TIM2_MspInit 1 */
 
@@ -391,11 +354,6 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
     */
     HAL_GPIO_DeInit(GPIOA, PS_04_Pin|PS_03_Pin|PS_02_Pin|PS_01_Pin);
 
-    /* TIM2 DMA DeInit */
-    HAL_DMA_DeInit(htim_base->hdma[TIM_DMA_ID_UPDATE]);
-    HAL_DMA_DeInit(htim_base->hdma[TIM_DMA_ID_CC3]);
-    HAL_DMA_DeInit(htim_base->hdma[TIM_DMA_ID_CC2]);
-    HAL_DMA_DeInit(htim_base->hdma[TIM_DMA_ID_CC4]);
   /* USER CODE BEGIN TIM2_MspDeInit 1 */
 
   /* USER CODE END TIM2_MspDeInit 1 */

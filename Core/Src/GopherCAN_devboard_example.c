@@ -58,34 +58,34 @@ void init(CAN_HandleTypeDef* hcan_ptr)
 		init_error();
 	}
 
-	if (setup_pulse_sensor_vss(
-			&htim2,
-			TIM_CHANNEL_4,
-			CONVERSION_RATIO,
-			&wheel_speed_front_right,
-			DMA_STOPPED_TIMEOUT_MS,
-			true,
-			LOW_PULSES_PER_SECOND,
-			HIGH_PULSES_PER_SECOND,
-			MIN_SAMPLES,
-			MAX_SAMPLES
-			) != NO_PULSE_SENSOR_ISSUES) {
-		init_error();
-	}
-	if (setup_pulse_sensor_vss(
-			&htim2,
-			TIM_CHANNEL_3,
-			CONVERSION_RATIO,
-			&wheel_speed_front_left,
-			DMA_STOPPED_TIMEOUT_MS,
-			true,
-			LOW_PULSES_PER_SECOND,
-			HIGH_PULSES_PER_SECOND,
-			MIN_SAMPLES,
-			MAX_SAMPLES
-			) != NO_PULSE_SENSOR_ISSUES) {
-		init_error();
-	}
+//	if (setup_pulse_sensor_vss(
+//			&htim2,
+//			TIM_CHANNEL_4,
+//			CONVERSION_RATIO,
+//			&wheel_speed_front_right,
+//			DMA_STOPPED_TIMEOUT_MS,
+//			true,
+//			LOW_PULSES_PER_SECOND,
+//			HIGH_PULSES_PER_SECOND,
+//			MIN_SAMPLES,
+//			MAX_SAMPLES
+//			) != NO_PULSE_SENSOR_ISSUES) {
+//		init_error();
+//	}
+//	if (setup_pulse_sensor_vss(
+//			&htim2,
+//			TIM_CHANNEL_3,
+//			CONVERSION_RATIO,
+//			&wheel_speed_front_left,
+//			DMA_STOPPED_TIMEOUT_MS,
+//			true,
+//			LOW_PULSES_PER_SECOND,
+//			HIGH_PULSES_PER_SECOND,
+//			MIN_SAMPLES,
+//			MAX_SAMPLES
+//			) != NO_PULSE_SENSOR_ISSUES) {
+//		init_error();
+//	}
 }
 
 
@@ -117,12 +117,12 @@ void main_loop()
 	{
 		printf("Current tick: %lu\n", HAL_GetTick());
 		last_print_hb = HAL_GetTick();
-		HAL_GPIO_TogglePin(HBeat_GPIO_Port, Hbeat_Pin);
+		HAL_GPIO_TogglePin(HBeat_GPIO_Port, HBeat_Pin);
 		HAL_GPIO_TogglePin(Pullup_1_GPIO_Port, Pullup_1_Pin);
 		HAL_GPIO_TogglePin(Pullup_2_GPIO_Port, Pullup_2_Pin);
 		HAL_GPIO_TogglePin(Pullup_3_GPIO_Port, Pullup_3_Pin);
 		HAL_GPIO_TogglePin(PU4_GPIO_Port, PU4_Pin);
-		HAL_GPIO_TogglePin(PU5_GPIO_Port, PU5_Pin);
+		HAL_GPIO_TogglePin(Pu5_GPIO_Port, Pu5_Pin);
 		HAL_GPIO_TogglePin(PU6_GPIO_Port, PU6_Pin);
 		HAL_GPIO_TogglePin(PU7_GPIO_Port, PU7_Pin);
 		HAL_GPIO_TogglePin(PU8_GPIO_Port, PU8_Pin);
@@ -137,27 +137,11 @@ void main_loop()
 
 	}
 
-	if (check_pulse_sensors() != NO_PULSE_SENSOR_ISSUES) {
-		error = true;
-//		HAL_GPIO_WritePin(HBeat_GPIO_Port, HBeat_Pin, 1);
-//		HAL_GPIO_WritePin(HBeat, GPIO_PIN_34, 1);
-//		HAL_GPIO_WritePin(Pullup_1, GPIO_PIN_2, 1);
-//		HAL_GPIO_WritePin(Pullup_2, GPIO_PIN_3, 1);
-//		HAL_GPIO_WritePin(Pullup_3, GPIO_PIN_4, 1);
-//		HAL_GPIO_WritePin(PU4, GPIO_PIN_57, 1);
-//		HAL_GPIO_WritePin(PU5, GPIO_PIN_56, 1);
-//		HAL_GPIO_WritePin(PU6, GPIO_PIN_54, 1);
-//		HAL_GPIO_WritePin(PU7, GPIO_PIN_40, 1);
-//		HAL_GPIO_WritePin(PU8, GPIO_PIN_39, 1);
-//		HAL_GPIO_WritePin(PU9, GPIO_PIN_38, 1);
-//		HAL_GPIO_WritePin(PU10, GPIO_PIN_37, 1);
-//		HAL_GPIO_WritePin(PU11, GPIO_PIN_36, 1);
-//		HAL_GPIO_WritePin(PU12, GPIO_PIN_35, 1);
-//		HAL_GPIO_WritePin(GSense, GPIO_PIN_33, 1);
-
-	} else {
-		error = false;
-	}
+//	if (check_pulse_sensors() != NO_PULSE_SENSOR_ISSUES) {
+//		error = true;
+//	} else {
+//		error = false;
+//	}
 
 	update_and_queue_param_float(&pulseSensor1_V, wheel_speed_front_right);
 	update_and_queue_param_float(&pulseSensor2_V, wheel_speed_front_left);

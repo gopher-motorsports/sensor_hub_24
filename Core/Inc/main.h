@@ -57,14 +57,20 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define VS_04_Pin GPIO_PIN_0
-#define VS_04_GPIO_Port GPIOC
-#define VS_01_Pin GPIO_PIN_1
+#define Pullup_1_Pin GPIO_PIN_13
+#define Pullup_1_GPIO_Port GPIOC
+#define Pullup_2_Pin GPIO_PIN_14
+#define Pullup_2_GPIO_Port GPIOC
+#define Pullup_3_Pin GPIO_PIN_15
+#define Pullup_3_GPIO_Port GPIOC
+#define VS_01_Pin GPIO_PIN_0
 #define VS_01_GPIO_Port GPIOC
-#define VS_02_Pin GPIO_PIN_2
+#define VS_02_Pin GPIO_PIN_1
 #define VS_02_GPIO_Port GPIOC
-#define VS_03_Pin GPIO_PIN_3
+#define VS_03_Pin GPIO_PIN_2
 #define VS_03_GPIO_Port GPIOC
+#define VS_04_Pin GPIO_PIN_3
+#define VS_04_GPIO_Port GPIOC
 #define PS_04_Pin GPIO_PIN_0
 #define PS_04_GPIO_Port GPIOA
 #define PS_03_Pin GPIO_PIN_1
@@ -73,18 +79,47 @@ void Error_Handler(void);
 #define PS_02_GPIO_Port GPIOA
 #define PS_01_Pin GPIO_PIN_3
 #define PS_01_GPIO_Port GPIOA
+#define VS_05_Pin GPIO_PIN_4
+#define VS_05_GPIO_Port GPIOA
+#define VS_06_Pin GPIO_PIN_5
+#define VS_06_GPIO_Port GPIOA
 #define VS_07_Pin GPIO_PIN_6
 #define VS_07_GPIO_Port GPIOA
-#define VS_06_Pin GPIO_PIN_7
-#define VS_06_GPIO_Port GPIOA
-#define VS_08_Pin GPIO_PIN_4
-#define VS_08_GPIO_Port GPIOC
-#define VS_05_Pin GPIO_PIN_5
-#define VS_05_GPIO_Port GPIOC
+#define VS_08_Pin GPIO_PIN_7
+#define VS_08_GPIO_Port GPIOA
+#define VS_09_Pin GPIO_PIN_4
+#define VS_09_GPIO_Port GPIOC
+#define VS_10_Pin GPIO_PIN_5
+#define VS_10_GPIO_Port GPIOC
+#define VS_11_Pin GPIO_PIN_0
+#define VS_11_GPIO_Port GPIOB
+#define VS_12_Pin GPIO_PIN_1
+#define VS_12_GPIO_Port GPIOB
 #define GSense_Pin GPIO_PIN_12
 #define GSense_GPIO_Port GPIOB
 #define HBeat_Pin GPIO_PIN_13
 #define HBeat_GPIO_Port GPIOB
+#define PU12_Pin GPIO_PIN_14
+#define PU12_GPIO_Port GPIOB
+#define PU11_Pin GPIO_PIN_15
+#define PU11_GPIO_Port GPIOB
+#define PU10_Pin GPIO_PIN_6
+#define PU10_GPIO_Port GPIOC
+#define PU9_Pin GPIO_PIN_7
+#define PU9_GPIO_Port GPIOC
+#define PU8_Pin GPIO_PIN_8
+#define PU8_GPIO_Port GPIOC
+#define PU7_Pin GPIO_PIN_9
+#define PU7_GPIO_Port GPIOC
+#define PU6_Pin GPIO_PIN_2
+#define PU6_GPIO_Port GPIOD
+#define Pu5_Pin GPIO_PIN_4
+#define Pu5_GPIO_Port GPIOB
+#define PU4_Pin GPIO_PIN_5
+#define PU4_GPIO_Port GPIOB
+#define MCU_3v3_Swithc_Fault_Pin GPIO_PIN_8
+#define MCU_3v3_Swithc_Fault_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
