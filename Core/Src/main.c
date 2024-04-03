@@ -147,8 +147,8 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
-  init(&hcan1);
-  gsense_init(&hcan1, &hadc1, NULL, NULL, &htim10,
+  init(&hcan2);
+  gsense_init(&hcan2, &hadc1, NULL, NULL, &htim10,
 		  GSense_GPIO_Port, GSense_Pin);
   // TODO init speed sensors
 

@@ -41,6 +41,7 @@ int setup1, setup2;
 //  What needs to happen on startup in order to run GopherCAN
 void init(CAN_HandleTypeDef* hcan_ptr)
 {
+	HAL_GPIO_WritePin(Pullup_1_GPIO_Port, Pullup_1_Pin, 1);
 	example_hcan = hcan_ptr;
 
 	// initialize CAN
