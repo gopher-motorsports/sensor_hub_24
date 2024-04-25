@@ -95,10 +95,10 @@ void Error_Handler(void);
 #define VS_11_GPIO_Port GPIOB
 #define VS_12_Pin GPIO_PIN_1
 #define VS_12_GPIO_Port GPIOB
-#define GSense_Pin GPIO_PIN_12
-#define GSense_GPIO_Port GPIOB
-#define HBeat_Pin GPIO_PIN_13
+#define HBeat_Pin GPIO_PIN_2
 #define HBeat_GPIO_Port GPIOB
+#define GSense_Pin GPIO_PIN_10
+#define GSense_GPIO_Port GPIOB
 #define PU12_Pin GPIO_PIN_14
 #define PU12_GPIO_Port GPIOB
 #define PU11_Pin GPIO_PIN_15
@@ -111,6 +111,8 @@ void Error_Handler(void);
 #define PU8_GPIO_Port GPIOC
 #define PU7_Pin GPIO_PIN_9
 #define PU7_GPIO_Port GPIOC
+#define Fault_Pin GPIO_PIN_10
+#define Fault_GPIO_Port GPIOA
 #define PU6_Pin GPIO_PIN_2
 #define PU6_GPIO_Port GPIOD
 #define Pu5_Pin GPIO_PIN_4
