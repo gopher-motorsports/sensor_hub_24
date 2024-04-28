@@ -74,46 +74,20 @@ void init(CAN_HandleTypeDef* hcan_ptr)
 //			) != NO_PULSE_SENSOR_ISSUES) {
 //		init_error();
 //	}
-//	if (setup_pulse_sensor_vss(
-//			&htim2,
-//			TIM_CHANNEL_3,
-//			CONVERSION_RATIO,
-//			&wheel_speed_front_left,
-//			DMA_STOPPED_TIMEOUT_MS,
-//			true,
-//			LOW_PULSES_PER_SECOND,
-//			HIGH_PULSES_PER_SECOND,
-//			MIN_SAMPLES,
-//			MAX_SAMPLES
-//			) != NO_PULSE_SENSOR_ISSUES) {
-//		init_error();
-//	}
 
-//	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 1); // NC
-//	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 1); // NC
-//	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 1); // NC
-//	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 1); // NC
-//	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); // BT_FL - voltage
-//	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 1); // SPFL - voltage
-//	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 1); // BT_FR - voltage
-//	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 1); // SPFR - voltage
-//	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); // BP_F - voltage
-//	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 1); // SA - voltage
-//	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 1); // BP_R - voltage
-//	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 1);
 
-	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 0); // NC
-	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 0); // NC
-	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 0); // NC
-	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 0); // NC
-	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 0); // BT_FL - voltage
-	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 0); // SPFL - voltage
-	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 0); // BT_FR - voltage
-	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 0); // SPFR - voltage
-	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 0); // BP_F - voltage
-	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 0); // SA - voltage
-	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 0); // BP_R - voltage
-	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 0);
+	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 0); // EGT - resistance
+	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 1); // SPRL - voltage
+	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 0); // Left Rad Temp In - resistance
+	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 0); // Left Rad Temp Out - resistance
+	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); // Fual Pressure - voltage
+	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 1); // NC
 }
 
 
@@ -146,19 +120,18 @@ void main_loop()
 		printf("Current tick: %lu\n", HAL_GetTick());
 		last_print_hb = HAL_GetTick();
 		HAL_GPIO_TogglePin(HBeat_GPIO_Port, HBeat_Pin);
-		HAL_GPIO_TogglePin(PU1_GPIO_Port, PU1_Pin);
-		HAL_GPIO_TogglePin(PU2_GPIO_Port, PU2_Pin);
-		HAL_GPIO_TogglePin(PU3_GPIO_Port, PU3_Pin);
-		HAL_GPIO_TogglePin(PU4_GPIO_Port, PU4_Pin);
-		HAL_GPIO_TogglePin(PU5_GPIO_Port, PU5_Pin);
-		HAL_GPIO_TogglePin(PU6_GPIO_Port, PU6_Pin);
-		HAL_GPIO_TogglePin(PU7_GPIO_Port, PU7_Pin);
-		HAL_GPIO_TogglePin(PU8_GPIO_Port, PU8_Pin);
-		HAL_GPIO_TogglePin(PU9_GPIO_Port, PU9_Pin);
-		HAL_GPIO_TogglePin(PU10_GPIO_Port, PU10_Pin);
-		HAL_GPIO_TogglePin(PU11_GPIO_Port, PU11_Pin);
-		HAL_GPIO_TogglePin(PU12_GPIO_Port, PU12_Pin);
-		HAL_GPIO_TogglePin(GSense_GPIO_Port, GSense_Pin);
+//		HAL_GPIO_TogglePin(PU1_GPIO_Port, PU1_Pin);
+//		HAL_GPIO_TogglePin(PU2_GPIO_Port, PU2_Pin);
+//		HAL_GPIO_TogglePin(PU3_GPIO_Port, PU3_Pin);
+//		HAL_GPIO_TogglePin(PU4_GPIO_Port, PU4_Pin);
+//		HAL_GPIO_TogglePin(PU5_GPIO_Port, PU5_Pin);
+//		HAL_GPIO_TogglePin(PU6_GPIO_Port, PU6_Pin);
+//		HAL_GPIO_TogglePin(PU7_GPIO_Port, PU7_Pin);
+//		HAL_GPIO_TogglePin(PU8_GPIO_Port, PU8_Pin);
+//		HAL_GPIO_TogglePin(PU9_GPIO_Port, PU9_Pin);
+//		HAL_GPIO_TogglePin(PU10_GPIO_Port, PU10_Pin);
+//		HAL_GPIO_TogglePin(PU11_GPIO_Port, PU11_Pin);
+//		HAL_GPIO_TogglePin(PU12_GPIO_Port, PU12_Pin);
 	}
 
 //	if (check_pulse_sensors() != NO_PULSE_SENSOR_ISSUES) {
@@ -167,8 +140,7 @@ void main_loop()
 //		error = false;
 //	}
 
-	update_and_queue_param_float(&wheelSpeedFrontRight_mph, wheel_speed_front_right);
-	update_and_queue_param_float(&wheelSpeedFrontLeft_mph, wheel_speed_front_left);
+//	update_and_queue_param_float(&wheelSpeedRearLeft_mph, wheel_speed_front_right);
 
 	// DEBUG
 	static U8 last_led = 0;
