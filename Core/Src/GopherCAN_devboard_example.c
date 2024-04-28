@@ -21,7 +21,6 @@ CAN_HandleTypeDef* example_hcan;
 extern TIM_HandleTypeDef htim2;
 
 // Use this to define what module this board will be
-#define THIS_MODULE_ID PLM_ID
 #define PRINTF_HB_MS_BETWEEN 1000
 
 
@@ -32,7 +31,7 @@ float wheel_speed_front_left;
 bool error = false;
 
 // the CAN callback function used in this example
-static void change_led_state(U8 sender, void* UNUSED_LOCAL_PARAM, U8 remote_param, U8 UNUSED1, U8 UNUSED2, U8 UNUSED3);
+static void change_led_state(MODULE_ID sender, U8 remote_param, U8 UNUSED1, U8 UNUSED2, U8 UNUSED3);
 static void init_error(void);
 
 int setup1, setup2;
@@ -47,21 +46,23 @@ void init(CAN_HandleTypeDef* hcan_ptr)
 	// initialize CAN
 	// NOTE: CAN will also need to be added in CubeMX and code must be generated
 	// Check the STM_CAN repo for the file "F0xx CAN Config Settings.pptx" for the correct settings
-	if (init_can(GCAN0, example_hcan, THIS_MODULE_ID, BXTYPE_MASTER))
+	if (init_can(example_hcan, GCAN0))
 	{
 		init_error();
 	}
 
 	// Set the function pointer of SET_LED_STATE. This means the function change_led_state()
 	// will be run whenever this can command is sent to the module
-	if (add_custom_can_func(SET_LED_STATE, &change_led_state, TRUE, NULL))
-	{
-		init_error();
-	}
+//	if (add_custom_can_func(SET_LED_STATE, &change_led_state, TRUE, NULL))
+//	{
+//		init_error();
+//	}
+
+	attach_callback_cmd(SET_LED_STATE, &change_led_state);
 
 //	if (setup_pulse_sensor_vss(
 //			&htim2,
-//			TIM_CHANNEL_4,
+//			TIM_CHANNEL_1,
 //			CONVERSION_RATIO,
 //			&wheel_speed_front_right,
 //			DMA_STOPPED_TIMEOUT_MS,
@@ -87,6 +88,19 @@ void init(CAN_HandleTypeDef* hcan_ptr)
 //			) != NO_PULSE_SENSOR_ISSUES) {
 //		init_error();
 //	}
+
+	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); // BT_FL - voltage
+	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 1); // SPFL - voltage
+	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 1); // BT_FR - voltage
+	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 1); // SPFR - voltage
+	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); // BP_F - voltage
+	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 1); // SA - voltage
+	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 1); // BP_R - voltage
+	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 1);
 }
 
 
@@ -119,11 +133,11 @@ void main_loop()
 		printf("Current tick: %lu\n", HAL_GetTick());
 		last_print_hb = HAL_GetTick();
 		HAL_GPIO_TogglePin(HBeat_GPIO_Port, HBeat_Pin);
-		HAL_GPIO_TogglePin(Pullup_1_GPIO_Port, Pullup_1_Pin);
-		HAL_GPIO_TogglePin(Pullup_2_GPIO_Port, Pullup_2_Pin);
-		HAL_GPIO_TogglePin(Pullup_3_GPIO_Port, Pullup_3_Pin);
+		HAL_GPIO_TogglePin(PU1_GPIO_Port, PU1_Pin);
+		HAL_GPIO_TogglePin(PU2_GPIO_Port, PU2_Pin);
+		HAL_GPIO_TogglePin(PU3_GPIO_Port, PU3_Pin);
 		HAL_GPIO_TogglePin(PU4_GPIO_Port, PU4_Pin);
-		HAL_GPIO_TogglePin(Pu5_GPIO_Port, Pu5_Pin);
+		HAL_GPIO_TogglePin(PU5_GPIO_Port, PU5_Pin);
 		HAL_GPIO_TogglePin(PU6_GPIO_Port, PU6_Pin);
 		HAL_GPIO_TogglePin(PU7_GPIO_Port, PU7_Pin);
 		HAL_GPIO_TogglePin(PU8_GPIO_Port, PU8_Pin);
@@ -140,8 +154,8 @@ void main_loop()
 //		error = false;
 //	}
 
-	update_and_queue_param_float(&pulseSensor1_V, wheel_speed_front_right);
-	update_and_queue_param_float(&pulseSensor2_V, wheel_speed_front_left);
+	update_and_queue_param_float(&wheelSpeedFrontRight_mph, wheel_speed_front_right);
+	update_and_queue_param_float(&wheelSpeedFrontLeft_mph, wheel_speed_front_left);
 
 	// DEBUG
 	static U8 last_led = 0;
@@ -165,7 +179,7 @@ void main_loop()
 //  by parameter to remote_param. In this case parameter is a U16*, but
 //  any data type can be pointed to, as long as it is configured and casted
 //  correctly
-static void change_led_state(U8 sender, void* parameter, U8 remote_param, U8 UNUSED1, U8 UNUSED2, U8 UNUSED3)
+static void change_led_state(MODULE_ID sender, U8 remote_param, U8 UNUSED1, U8 UNUSED2, U8 UNUSED3)
 {
 	HAL_GPIO_WritePin(HBeat_GPIO_Port, HBeat_Pin, !!remote_param);
 	return;

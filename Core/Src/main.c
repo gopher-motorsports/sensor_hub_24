@@ -584,12 +584,12 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, Pullup_1_Pin|Pullup_2_Pin|Pullup_3_Pin|PU10_Pin
+  HAL_GPIO_WritePin(GPIOC, PU1_Pin|PU2_Pin|PU3_Pin|PU10_Pin
                           |PU9_Pin|PU8_Pin|PU7_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, HBeat_Pin|GSense_Pin|PU12_Pin|PU11_Pin
-                          |Pu5_Pin|PU4_Pin, GPIO_PIN_RESET);
+                          |PU5_Pin|PU4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(Fault_GPIO_Port, Fault_Pin, GPIO_PIN_RESET);
@@ -597,9 +597,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : Pullup_1_Pin Pullup_2_Pin Pullup_3_Pin PU10_Pin
+  /*Configure GPIO pins : PU1_Pin PU2_Pin PU3_Pin PU10_Pin
                            PU9_Pin PU8_Pin PU7_Pin */
-  GPIO_InitStruct.Pin = Pullup_1_Pin|Pullup_2_Pin|Pullup_3_Pin|PU10_Pin
+  GPIO_InitStruct.Pin = PU1_Pin|PU2_Pin|PU3_Pin|PU10_Pin
                           |PU9_Pin|PU8_Pin|PU7_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -607,9 +607,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : HBeat_Pin GSense_Pin PU12_Pin PU11_Pin
-                           Pu5_Pin PU4_Pin */
+                           PU5_Pin PU4_Pin */
   GPIO_InitStruct.Pin = HBeat_Pin|GSense_Pin|PU12_Pin|PU11_Pin
-                          |Pu5_Pin|PU4_Pin;
+                          |PU5_Pin|PU4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
