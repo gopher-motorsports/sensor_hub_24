@@ -89,18 +89,31 @@ void init(CAN_HandleTypeDef* hcan_ptr)
 //		init_error();
 //	}
 
-	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 1); // NC
-	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 1); // NC
-	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 1); // NC
-	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 1); // NC
-	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); // BT_FL - voltage
-	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 1); // SPFL - voltage
-	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 1); // BT_FR - voltage
-	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 1); // SPFR - voltage
-	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); // BP_F - voltage
-	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 1); // SA - voltage
-	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 1); // BP_R - voltage
-	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 1);
+//	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 1); // NC
+//	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 1); // NC
+//	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 1); // NC
+//	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 1); // NC
+//	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); // BT_FL - voltage
+//	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 1); // SPFL - voltage
+//	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 1); // BT_FR - voltage
+//	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 1); // SPFR - voltage
+//	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); // BP_F - voltage
+//	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 1); // SA - voltage
+//	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 1); // BP_R - voltage
+//	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 1);
+
+	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 0); // NC
+	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 0); // NC
+	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 0); // NC
+	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 0); // NC
+	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 0); // BT_FL - voltage
+	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 0); // SPFL - voltage
+	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 0); // BT_FR - voltage
+	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 0); // SPFR - voltage
+	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 0); // BP_F - voltage
+	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 0); // SA - voltage
+	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 0); // BP_R - voltage
+	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 0);
 }
 
 
