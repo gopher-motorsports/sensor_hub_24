@@ -1,4 +1,3 @@
-
 module_name: "example_sensor_hub"
 
 buckets:
@@ -6,45 +5,28 @@ buckets:
         # NOTE: frequency will be converted to an integer number of ms for a delay
         frequency_hz: 100
         parameters:
-            # these must directly be a variable defined in GopherCAN
             # Listed in order of their pins in the sensor hub board side connector
-            exhaustTemp_C:
+            airLinePressure_psi:
                 ADC: ADC1_IN4
-                sensor: exhaust_temp_sensor
+                sensor: pressure_sensor_sealed_gauge
                 samples_buffered: 2
-            shockPosRearLeft_mm:
+            airTankPressure_psi:
                 ADC: ADC1_IN5
+                sensor: air_tank_pressure_sensor
+                samples_buffered: 2
+            manifoldTemp_C:
+                ADC: ADC1_IN6
+                sensor: combined_temp_sensor
+                samples_buffered: 2
+            manifoldPressure_kPa:
+                ADC: ADC1_IN7
+                sensor: combined_pressure_sensor
+                samples_buffered: 2
+            shockPosRearRight_mm:
+                ADC: ADC1_IN14
                 sensor: linear_pos_sensor_50
                 samples_buffered: 2
-            leftRadWaterTempIn_C:
-                ADC: ADC1_IN6
-                sensor: temp_sensor
-                samples_buffered: 2
-            leftRadWaterTempOut_C:
-                ADC: ADC1_IN7
-                sensor: temp_sensor
-                samples_buffered: 2
-            fuelPressure_psi:
-                ADC: ADC1_IN14
-                sensor: pressure_sensor_absolute
-                samples_buffered: 2
-            # leftAuxPressure_psi:
-            #     ADC: ADC1_IN6
-            #     sensor: pressure_sensor_absolute
-                # samples_buffered: 2
-            # leftShroudPitot_inH2O:
-            #     ADC: ADC1_IN7       # pin 6 -> ADC1_IN7 is not currently working correctly
-            #     sensor: differential_pressure_sensor
-            #     samples_buffered: 2
-            wheelSpeedRearLeft_mph:
+            wheelSpeedRearRight_mph:
                 ADC: NON_ADC
                 sensor: NON_ADC
                 samples_buffered: 2
-            # leftFlowRate_GPerSec:
-            #     ADC: NON_ADC
-            #     sensor: NON_ADC
-            #     samples_buffered: 2
-            # leftFlowRateFreq_hz:
-            #     ADC: NON_ADC
-            #     sensor: NON_ADC
-            #     samples_buffered: 2
