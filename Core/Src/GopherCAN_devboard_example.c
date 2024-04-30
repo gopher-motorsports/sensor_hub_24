@@ -146,19 +146,19 @@ void main_loop()
 		printf("Current tick: %lu\n", HAL_GetTick());
 		last_print_hb = HAL_GetTick();
 		HAL_GPIO_TogglePin(HBeat_GPIO_Port, HBeat_Pin);
-		HAL_GPIO_TogglePin(PU1_GPIO_Port, PU1_Pin);
-		HAL_GPIO_TogglePin(PU2_GPIO_Port, PU2_Pin);
-		HAL_GPIO_TogglePin(PU3_GPIO_Port, PU3_Pin);
-		HAL_GPIO_TogglePin(PU4_GPIO_Port, PU4_Pin);
-		HAL_GPIO_TogglePin(PU5_GPIO_Port, PU5_Pin);
-		HAL_GPIO_TogglePin(PU6_GPIO_Port, PU6_Pin);
-		HAL_GPIO_TogglePin(PU7_GPIO_Port, PU7_Pin);
-		HAL_GPIO_TogglePin(PU8_GPIO_Port, PU8_Pin);
-		HAL_GPIO_TogglePin(PU9_GPIO_Port, PU9_Pin);
-		HAL_GPIO_TogglePin(PU10_GPIO_Port, PU10_Pin);
-		HAL_GPIO_TogglePin(PU11_GPIO_Port, PU11_Pin);
-		HAL_GPIO_TogglePin(PU12_GPIO_Port, PU12_Pin);
-		HAL_GPIO_TogglePin(GSense_GPIO_Port, GSense_Pin);
+//		HAL_GPIO_TogglePin(PU1_GPIO_Port, PU1_Pin);
+//		HAL_GPIO_TogglePin(PU2_GPIO_Port, PU2_Pin);
+//		HAL_GPIO_TogglePin(PU3_GPIO_Port, PU3_Pin);
+//		HAL_GPIO_TogglePin(PU4_GPIO_Port, PU4_Pin);
+//		HAL_GPIO_TogglePin(PU5_GPIO_Port, PU5_Pin);
+//		HAL_GPIO_TogglePin(PU6_GPIO_Port, PU6_Pin);
+//		HAL_GPIO_TogglePin(PU7_GPIO_Port, PU7_Pin);
+//		HAL_GPIO_TogglePin(PU8_GPIO_Port, PU8_Pin);
+//		HAL_GPIO_TogglePin(PU9_GPIO_Port, PU9_Pin);
+//		HAL_GPIO_TogglePin(PU10_GPIO_Port, PU10_Pin);
+//		HAL_GPIO_TogglePin(PU11_GPIO_Port, PU11_Pin);
+//		HAL_GPIO_TogglePin(PU12_GPIO_Port, PU12_Pin);
+//		HAL_GPIO_TogglePin(GSense_GPIO_Port, GSense_Pin);
 	}
 
 //	if (check_pulse_sensors() != NO_PULSE_SENSOR_ISSUES) {
