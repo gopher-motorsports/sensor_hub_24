@@ -7,7 +7,7 @@
 #include "pulse_sensor.h"
 #include "gopher_sense.h"
 
-#define CONVERSION_RATIO (float)CALCULATE_MPH_CONVERSION_RATIO(30.0f, 7.8f) // Conversion ration from frequency of pulses to mph
+#define CONVERSION_RATIO (float)CALCULATE_MPH_CONVERSION_RATIO(18.0f, 7.8f) // Conversion ration from frequency of pulses to mph
 #define HDMA_CHANNEL_4 2 // hdma value dma is going to use
 #define HDMA_CHANNEL_3 3 // TODO: This is prob wrong, verify
 #define DMA_STOPPED_TIMEOUT_MS 1000
@@ -58,62 +58,49 @@ void init(CAN_HandleTypeDef* hcan_ptr)
 //		init_error();
 //	}
 
-	attach_callback_cmd(SET_LED_STATE, &change_led_state);
+//	attach_callback_cmd(SET_LED_STATE, &change_led_state);
 
-//	if (setup_pulse_sensor_vss(
-//			&htim2,
-//			TIM_CHANNEL_1,
-//			CONVERSION_RATIO,
-//			&wheel_speed_front_right,
-//			DMA_STOPPED_TIMEOUT_MS,
-//			true,
-//			LOW_PULSES_PER_SECOND,
-//			HIGH_PULSES_PER_SECOND,
-//			MIN_SAMPLES,
-//			MAX_SAMPLES
-//			) != NO_PULSE_SENSOR_ISSUES) {
-//		init_error();
-//	}
-//	if (setup_pulse_sensor_vss(
-//			&htim2,
-//			TIM_CHANNEL_3,
-//			CONVERSION_RATIO,
-//			&wheel_speed_front_left,
-//			DMA_STOPPED_TIMEOUT_MS,
-//			true,
-//			LOW_PULSES_PER_SECOND,
-//			HIGH_PULSES_PER_SECOND,
-//			MIN_SAMPLES,
-//			MAX_SAMPLES
-//			) != NO_PULSE_SENSOR_ISSUES) {
-//		init_error();
-//	}
+	if (setup_pulse_sensor_vss(
+			&htim2,
+			TIM_CHANNEL_1,
+			CONVERSION_RATIO,
+			&wheel_speed_front_right,
+			DMA_STOPPED_TIMEOUT_MS,
+			true,
+			LOW_PULSES_PER_SECOND,
+			HIGH_PULSES_PER_SECOND,
+			MIN_SAMPLES,
+			MAX_SAMPLES
+			) != NO_PULSE_SENSOR_ISSUES) {
+		init_error();
+	}
+	if (setup_pulse_sensor_vss(
+			&htim2,
+			TIM_CHANNEL_3,
+			CONVERSION_RATIO,
+			&wheel_speed_front_left,
+			DMA_STOPPED_TIMEOUT_MS,
+			true,
+			LOW_PULSES_PER_SECOND,
+			HIGH_PULSES_PER_SECOND,
+			MIN_SAMPLES,
+			MAX_SAMPLES
+			) != NO_PULSE_SENSOR_ISSUES) {
+		init_error();
+	}
 
-//	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 1); // NC
-//	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 1); // NC
-//	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 1); // NC
-//	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 1); // NC
-//	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); // BT_FL - voltage
-//	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 1); // SPFL - voltage
-//	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 1); // BT_FR - voltage
-//	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 1); // SPFR - voltage
-//	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); // BP_F - voltage
-//	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 1); // SA - voltage
-//	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 1); // BP_R - voltage
-//	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 1);
-
-	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 0); // NC
-	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 0); // NC
-	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 0); // NC
-	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 0); // NC
-	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 0); // BT_FL - voltage
-	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 0); // SPFL - voltage
-	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 0); // BT_FR - voltage
-	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 0); // SPFR - voltage
-	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 0); // BP_F - voltage
-	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 0); // SA - voltage
-	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 0); // BP_R - voltage
-	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 0);
+	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); // BT_FL - voltage
+	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 1); // SPFL - voltage
+	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 1); // BT_FR - voltage
+	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 1); // SPFR - voltage
+	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); // BP_F - voltage
+	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 1); // SA - voltage
+	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 1); // BP_R - voltage
+	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 1);
 }
 
 
@@ -161,11 +148,11 @@ void main_loop()
 //		HAL_GPIO_TogglePin(GSense_GPIO_Port, GSense_Pin);
 	}
 
-//	if (check_pulse_sensors() != NO_PULSE_SENSOR_ISSUES) {
-//		error = true;
-//	} else {
-//		error = false;
-//	}
+	if (check_pulse_sensors() != NO_PULSE_SENSOR_ISSUES) {
+		error = true;
+	} else {
+		error = false;
+	}
 
 	update_and_queue_param_float(&wheelSpeedFrontRight_mph, wheel_speed_front_right);
 	update_and_queue_param_float(&wheelSpeedFrontLeft_mph, wheel_speed_front_left);
@@ -194,7 +181,7 @@ void main_loop()
 //  correctly
 static void change_led_state(MODULE_ID sender, U8 remote_param, U8 UNUSED1, U8 UNUSED2, U8 UNUSED3)
 {
-	HAL_GPIO_WritePin(HBeat_GPIO_Port, HBeat_Pin, !!remote_param);
+//	HAL_GPIO_WritePin(HBeat_GPIO_Port, HBeat_Pin, !!remote_param);
 	return;
 }
 
