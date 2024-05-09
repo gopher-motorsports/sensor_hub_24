@@ -3,42 +3,88 @@ module_name: "example_sensor_hub"
 
 buckets:
     bucket_0:
-        frequency_hz: 100
+        # NOTE: frequency will be converted to an integer number of ms for a delay
+        frequency_hz: 250
         parameters:
-            # Listed in order of their pins in the sensor hub board side connector
-            brakeTempFrontLeft_C:
+            # these must directly be a variable defined in GopherCAN
+            voltageSensor1_V:
+                ADC: ADC1_IN10
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+            
+            voltageSensor2_V:
+                ADC: ADC1_IN11
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor3_V:
+                ADC: ADC1_IN12
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor4_V:
+                ADC: ADC1_IN13
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            voltageSensor5_V:
                 ADC: ADC1_IN4
-                sensor: brake_temp_sensor
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
-            shockPosFrontLeft_mm:
+
+            voltageSensor6_V:
                 ADC: ADC1_IN5
-                sensor: front_left_shock_pos
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
-            brakeTempFrontRight_C:
+            
+            voltageSensor7_V:
                 ADC: ADC1_IN6
-                sensor: brake_temp_sensor
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
-            shockPosFrontRight_mm:
+
+            voltageSensor8_V:
                 ADC: ADC1_IN7
-                sensor: front_right_shock_pos
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
-            brakePressureFront_psi:
+
+            voltageSensor9_V:
                 ADC: ADC1_IN14
-                sensor: brake_pressure_sensor
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
-            steeringAngle_deg:
+
+            voltageSensor10_V:
                 ADC: ADC1_IN15
-                sensor: steering_angle_sensor
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
-            brakePressureRear_psi:
+            
+            voltageSensor11_V:
                 ADC: ADC1_IN8
-                sensor: brake_pressure_sensor
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
-            wheelSpeedFrontRight_mph:
+
+            voltageSensor12_V:
+                ADC: ADC1_IN9
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+
+            pulseSensor1_V:
+                ADC: NON_ADC 
+                sensor: NON_ADC
+                samples_buffered: 2
+
+            pulseSensor2_V:
                 ADC: NON_ADC
                 sensor: NON_ADC
                 samples_buffered: 2
-            wheelSpeedFrontLeft_mph:
+            
+            pulseSensor3_V:
                 ADC: NON_ADC
                 sensor: NON_ADC
                 samples_buffered: 2
+
+            pulseSensor4_V:
+                ADC: NON_ADC
+                sensor: NON_ADC
+                samples_buffered: 2
+                
+
