@@ -7,7 +7,7 @@
 #include "pulse_sensor.h"
 #include "gopher_sense.h"
 
-#define CONVERSION_RATIO (float)CALCULATE_MPH_CONVERSION_RATIO(30.0f, 7.8f) // Conversion ration from frequency of pulses to mph
+#define CONVERSION_RATIO (float)CALCULATE_MPH_CONVERSION_RATIO(24.0f, 7.8f) // Conversion ration from frequency of pulses to mph
 #define HDMA_CHANNEL_1 1 // hdma value dma is going to use
 #define DMA_STOPPED_TIMEOUT_MS 1000
 #define LOW_PULSES_PER_SECOND 1 // 15 mph, when we only take 5 samples per dma check
@@ -164,7 +164,7 @@ void main_loop()
 //  correctly
 static void change_led_state(MODULE_ID sender, U8 remote_param, U8 UNUSED1, U8 UNUSED2, U8 UNUSED3)
 {
-	HAL_GPIO_WritePin(HBeat_GPIO_Port, HBeat_Pin, !!remote_param);
+//	HAL_GPIO_WritePin(HBeat_GPIO_Port, HBeat_Pin, !!remote_param);
 	return;
 }
 
