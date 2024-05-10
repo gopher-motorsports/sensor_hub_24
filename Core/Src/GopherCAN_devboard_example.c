@@ -7,7 +7,7 @@
 #include "pulse_sensor.h"
 #include "gopher_sense.h"
 
-#define CONVERSION_RATIO (float)CALCULATE_MPH_CONVERSION_RATIO(21.0f, 7.8f) // Conversion ration from frequency of pulses to mph
+#define CONVERSION_RATIO (float)CALCULATE_MPH_CONVERSION_RATIO(24.0f, 7.8f) // Conversion ration from frequency of pulses to mph
 #define HDMA_CHANNEL_4 2 // hdma value dma is going to use
 #define HDMA_CHANNEL_3 3 // TODO: This is prob wrong, verify
 #define DMA_STOPPED_TIMEOUT_MS 1000
