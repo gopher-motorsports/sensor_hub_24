@@ -8,26 +8,26 @@ buckets:
         parameters:
             # these must directly be a variable defined in GopherCAN
             # Listed in order of their pins in the sensor hub board side connector
-            exhaustTemp_C:
+            shockPosRealLeft_mm:
                 ADC: ADC1_IN4
-                sensor: exhaust_temp_sensor
+                sensor: exhlinear_pos_sensor_50
                 samples_buffered: 2
-            shockPosRearLeft_mm:
+            leftRadTempIn_C:
                 ADC: ADC1_IN5
-                sensor: linear_pos_sensor_50
+                sensor: temp_sensor
                 samples_buffered: 2
-            leftRadWaterTempIn_C:
+            leftRadTempOut_C:
                 ADC: ADC1_IN6
                 sensor: temp_sensor
                 samples_buffered: 2
-            leftRadWaterTempOut_C:
+            WaterSpeedRearLeft:
                 ADC: ADC1_IN7
-                sensor: temp_sensor
+                sensor: speed_sensor
                 samples_buffered: 2
-            fuelPressure_psi:
-                ADC: ADC1_IN14
-                sensor: pressure_sensor_absolute
-                samples_buffered: 2
+            # fuelPressure_psi:
+            #     ADC: ADC1_IN14
+            #     sensor: pressure_sensor_absolute
+            #     samples_buffered: 2
             # leftAuxPressure_psi:
             #     ADC: ADC1_IN6
             #     sensor: pressure_sensor_absolute
@@ -36,10 +36,10 @@ buckets:
             #     ADC: ADC1_IN7       # pin 6 -> ADC1_IN7 is not currently working correctly
             #     sensor: differential_pressure_sensor
             #     samples_buffered: 2
-            wheelSpeedRearLeft_mph:
-                ADC: NON_ADC
-                sensor: NON_ADC
-                samples_buffered: 2
+            # wheelSpeedRearLeft_mph:
+            #     ADC: NON_ADC
+            #     sensor: NON_ADC
+            #     samples_buffered: 2
             # leftFlowRate_GPerSec:
             #     ADC: NON_ADC
             #     sensor: NON_ADC
