@@ -6,27 +6,27 @@ buckets:
         frequency_hz: 100
         parameters:
             # Listed in order of their pins in the sensor hub board side connector
-            airLinePressure_psi:
+            brakeTempRearRight_C:
                 ADC: ADC1_IN4
-                sensor: pressure_sensor_sealed_gauge
-                samples_buffered: 2
-            airTankPressure_psi:
-                ADC: ADC1_IN5
-                sensor: air_tank_pressure_sensor
-                samples_buffered: 2
-            manifoldTemp_C:
-                ADC: ADC1_IN6
-                sensor: combined_temp_sensor
-                samples_buffered: 2
-            manifoldPressure_kPa:
-                ADC: ADC1_IN7
-                sensor: combined_pressure_sensor
+                sensor: temp_sensor
                 samples_buffered: 2
             shockPosRearRight_mm:
-                ADC: ADC1_IN14
-                sensor: linear_pos_sensor_50
+                ADC: ADC1_IN5
+                sensor: exhlinear_pos_sensor_50
                 samples_buffered: 2
-            wheelSpeedRearRight_mph:
-                ADC: NON_ADC
-                sensor: NON_ADC
-                samples_buffered: 2
+            # manifoldTemp_C:
+            #     ADC: ADC1_IN6
+            #     sensor: combined_temp_sensor
+            #     samples_buffered: 2
+            # manifoldPressure_kPa:
+            #     ADC: ADC1_IN7
+            #     sensor: combined_pressure_sensor
+            #     samples_buffered: 2
+            # shockPosRearRight_mm:
+            #     ADC: ADC1_IN14
+            #     sensor: linear_pos_sensor_50
+            #     samples_buffered: 2
+            # wheelSpeedRearRight_mph:
+            #     ADC: NON_ADC
+            #     sensor: NON_ADC
+            #     samples_buffered: 2
