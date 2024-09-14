@@ -36,10 +36,10 @@ buckets:
             #     ADC: ADC1_IN7       # pin 6 -> ADC1_IN7 is not currently working correctly
             #     sensor: differential_pressure_sensor
             #     samples_buffered: 2
-            # wheelSpeedRearLeft_mph:
-            #     ADC: NON_ADC
-            #     sensor: NON_ADC
-            #     samples_buffered: 2
+            wheelSpeedRearLeft_mph:
+                ADC: NON_ADC
+                sensor: NON_ADC
+                samples_buffered: 2
             # leftFlowRate_GPerSec:
             #     ADC: NON_ADC
             #     sensor: NON_ADC
