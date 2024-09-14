@@ -22,23 +22,23 @@ buckets:
                 ADC: ADC1_IN7
                 sensor: front_right_shock_pos
                 samples_buffered: 2
-            brakePressureFront_psi:
-                ADC: ADC1_IN14
-                sensor: brake_pressure_sensor
-                samples_buffered: 2
             steeringAngle_deg:
-                ADC: ADC1_IN15
+                ADC: ADC1_IN14
                 sensor: steering_angle_sensor
                 samples_buffered: 2
-            brakePressureRear_psi:
-                ADC: ADC1_IN8
+            brakePressureFront_psi:
+                ADC: ADC1_IN15
                 sensor: brake_pressure_sensor
                 samples_buffered: 2
-            wheelSpeedFrontRight_mph:
-                ADC: NON_ADC
-                sensor: NON_ADC
-                samples_buffered: 2
-            wheelSpeedFrontLeft_mph:
-                ADC: NON_ADC
-                sensor: NON_ADC
-                samples_buffered: 2
+            # brakePressureRear_psi:
+            #     ADC: ADC1_IN8
+            #     sensor: brake_pressure_sensor
+            #     samples_buffered: 2
+            # wheelSpeedFrontRight_mph:
+            #     ADC: NON_ADC
+            #     sensor: NON_ADC
+            #     samples_buffered: 2
+            # wheelSpeedFrontLeft_mph:
+            #     ADC: NON_ADC
+            #     sensor: NON_ADC
+            #     samples_buffered: 2
