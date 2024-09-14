@@ -12,7 +12,7 @@ buckets:
                 samples_buffered: 2
             shockPosRearRight_mm:
                 ADC: ADC1_IN5
-                sensor: linear_pos_sensor_50
+                sensor: rear_right_shock_pos
                 samples_buffered: 2
             # manifoldTemp_C:
             #     ADC: ADC1_IN6
