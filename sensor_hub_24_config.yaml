@@ -10,20 +10,20 @@ buckets:
             # Listed in order of their pins in the sensor hub board side connector
             shockPosRearLeft_mm:
                 ADC: ADC1_IN4
-                sensor: rear_left_shock_pos
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
-            leftRadTempIn_C:
+            radWaterTempIn_C:
                 ADC: ADC1_IN5
                 sensor: temp_sensor
                 samples_buffered: 2
-            leftRadTempOut_C:
+            radWaterTempOut_C:
                 ADC: ADC1_IN6
                 sensor: temp_sensor
                 samples_buffered: 2
-            WaterSpeedRearLeft:
-                ADC: ADC1_IN7
-                sensor: speed_sensor
-                samples_buffered: 2
+            # WaterSpeedRearLeft:
+            #     ADC: ADC1_IN7
+            #     sensor: speed_sensor
+            #     samples_buffered: 2
             # fuelPressure_psi:
             #     ADC: ADC1_IN14
             #     sensor: pressure_sensor_absolute
