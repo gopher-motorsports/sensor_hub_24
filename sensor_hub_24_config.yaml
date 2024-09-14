@@ -12,7 +12,7 @@ buckets:
                 samples_buffered: 2
             shockPosFrontLeft_mm:
                 ADC: ADC1_IN5
-                sensor: front_left_shock_pos
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
             brakeTempFrontRight_C:
                 ADC: ADC1_IN6
@@ -20,7 +20,7 @@ buckets:
                 samples_buffered: 2
             shockPosFrontRight_mm:
                 ADC: ADC1_IN7
-                sensor: front_right_shock_pos
+                sensor: linear_pos_sensor_50
                 samples_buffered: 2
             steeringAngle_deg:
                 ADC: ADC1_IN14
