@@ -11,8 +11,8 @@ buckets:
                 sensor: brake_temp_sensor
                 samples_buffered: 2
             shockPosRearRight_mm:
-                ADC: ADC1_IN5
-                sensor: rear_right_shock_pos
+                ADC: ADC1_IN6
+                sensor: full_raw_voltage_sensor
                 samples_buffered: 2
             # manifoldTemp_C:
             #     ADC: ADC1_IN6
