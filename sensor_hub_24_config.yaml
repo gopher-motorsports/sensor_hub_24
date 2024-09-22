@@ -26,7 +26,7 @@ buckets:
                 ADC: ADC1_IN14
                 sensor: steering_angle_sensor
                 samples_buffered: 2
-            brakePressureFront_psi:
+            brakePressureRear_psi:
                 ADC: ADC1_IN15
                 sensor: brake_pressure_sensor
                 samples_buffered: 2
