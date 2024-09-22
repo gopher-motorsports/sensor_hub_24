@@ -12,8 +12,12 @@ buckets:
                 samples_buffered: 2
             shockPosRearRight_mm:
                 ADC: ADC1_IN6
-                sensor: full_raw_voltage_sensor
+                sensor: rear_right_shock_pos
                 samples_buffered: 2
+            # shockPosRearRight_V:
+            #     ADC: ADC1_IN6
+            #     sensor: full_raw_voltage_sensor
+            #     samples_buffered: 2
             # manifoldTemp_C:
             #     ADC: ADC1_IN6
             #     sensor: combined_temp_sensor
