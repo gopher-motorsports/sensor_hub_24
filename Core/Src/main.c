@@ -604,7 +604,7 @@ void task_MainTask(void const * argument)
   for(;;)
   {
 	  main_loop();
-    osDelay(10);
+    osDelay(1);
   }
   /* USER CODE END 5 */
 }

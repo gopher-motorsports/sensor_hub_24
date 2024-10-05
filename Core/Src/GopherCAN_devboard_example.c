@@ -10,7 +10,7 @@
 #define CONVERSION_RATIO (float)CALCULATE_MPH_CONVERSION_RATIO(18.0f, 7.8f) // Conversion ration from frequency of pulses to mph
 #define HDMA_CHANNEL_4 2 // hdma value dma is going to use
 #define HDMA_CHANNEL_3 3 // TODO: This is prob wrong, verify
-#define DMA_STOPPED_TIMEOUT_MS 1000
+#define DMA_STOPPED_TIMEOUT_MS 2000
 #define LOW_PULSES_PER_SECOND 1 // 15 mph, when we only take 5 samples per dma check
 #define HIGH_PULSES_PER_SECOND 300 // Don't expect to reach this but we don't want to take that many samples
 #define MIN_SAMPLES 2
