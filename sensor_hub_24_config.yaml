@@ -12,39 +12,19 @@ buckets:
                 ADC: ADC1_IN7
                 sensor: rear_left_shock_pos
                 samples_buffered: 2
-            radWaterTempIn_C:
-                ADC: ADC1_IN5
-                sensor: temp_sensor
-                samples_buffered: 2
-            radWaterTempOut_C:
-                ADC: ADC1_IN6
-                sensor: temp_sensor
-                samples_buffered: 2
-            # WaterSpeedRearLeft:
-            #     ADC: ADC1_IN7
-            #     sensor: speed_sensor
+            # radWaterTempIn_C:
+            #     ADC: ADC1_IN5
+            #     sensor: temp_sensor
             #     samples_buffered: 2
-            # fuelPressure_psi:
-            #     ADC: ADC1_IN14
-            #     sensor: pressure_sensor_absolute
-            #     samples_buffered: 2
-            # leftAuxPressure_psi:
+            # radWaterTempOut_C:
             #     ADC: ADC1_IN6
-            #     sensor: pressure_sensor_absolute
-                # samples_buffered: 2
-            # leftShroudPitot_inH2O:
-            #     ADC: ADC1_IN7       # pin 6 -> ADC1_IN7 is not currently working correctly
-            #     sensor: differential_pressure_sensor
+            #     sensor: temp_sensor
             #     samples_buffered: 2
+            brakeTempRearLeft_C:
+                ADC: ADC1_IN14
+                sensor: brake_temp_sensor
+                samples_buffered: 2
             wheelSpeedRearLeft_mph:
                 ADC: NON_ADC
                 sensor: NON_ADC
                 samples_buffered: 2
-            # leftFlowRate_GPerSec:
-            #     ADC: NON_ADC
-            #     sensor: NON_ADC
-            #     samples_buffered: 2
-            # leftFlowRateFreq_hz:
-            #     ADC: NON_ADC
-            #     sensor: NON_ADC
-            #     samples_buffered: 2
