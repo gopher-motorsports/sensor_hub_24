@@ -79,11 +79,11 @@ void init(CAN_HandleTypeDef* hcan_ptr)
 	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 1); // NC
 	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 1); // NC
 	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 1); // NC
-	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); //
-	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 1); //
-	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 1); //
-	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 1); //
-	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); //
+	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); // brake temp rear right - voltage
+	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 1); // motor pressure 1 - voltage
+	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 1); // shock pot rear right - voltage
+	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 0); // motor water temp in - temp
+	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 0); // motor water temp out - temp
 	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 1); // NC
 	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 1); // NC
 	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 1); // NC
