@@ -12,19 +12,28 @@ buckets:
                 ADC: ADC1_IN7
                 sensor: rear_left_shock_pos
                 samples_buffered: 2
-            # radWaterTempIn_C:
-            #     ADC: ADC1_IN5
-            #     sensor: temp_sensor
-            #     samples_buffered: 2
-            # radWaterTempOut_C:
-            #     ADC: ADC1_IN6
-            #     sensor: temp_sensor
-            #     samples_buffered: 2
             brakeTempRearLeft_C:
                 ADC: ADC1_IN14
                 sensor: brake_temp_sensor
                 samples_buffered: 2
+            upperWaterTemp_psi:
+                ADC: ADC1_IN5
+                sensor: temp_sensor
+                samples_buffered: 2
+            inverterWaterTempIn_psi:
+                ADC: ADC1_IN6
+                sensor: temp_sensor
+                samples_buffered: 2
+
             wheelSpeedRearLeft_mph:
+                ADC: NON_ADC
+                sensor: NON_ADC
+                samples_buffered: 2
+            rightFlowRateFreq_hz:
+                ADC: NON_ADC
+                sensor: NON_ADC
+                samples_buffered: 2
+            leftFlowRateFreq_hz:
                 ADC: NON_ADC
                 sensor: NON_ADC
                 samples_buffered: 2

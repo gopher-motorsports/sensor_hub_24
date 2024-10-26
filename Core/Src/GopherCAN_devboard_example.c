@@ -26,6 +26,8 @@ extern TIM_HandleTypeDef htim2;
 // some global variables for examples
 U8 last_button_state = 0;
 float wheel_speed_rear_left;
+float rightFlowRateFreq;
+float leftFlowRateFreq;
 bool error = false;
 
 // the CAN callback function used in this example
@@ -73,16 +75,46 @@ void init(CAN_HandleTypeDef* hcan_ptr)
 		init_error();
 	}
 
+	if (setup_pulse_sensor_vss(
+			&htim2,
+			TIM_CHANNEL_2,
+			1,
+			&rightFlowRateFreq,
+			DMA_STOPPED_TIMEOUT_MS,
+			true,
+			LOW_PULSES_PER_SECOND,
+			HIGH_PULSES_PER_SECOND,
+			MIN_SAMPLES,
+			MAX_SAMPLES
+			) != NO_PULSE_SENSOR_ISSUES) {
+		init_error();
+	}
+
+	if (setup_pulse_sensor_vss(
+			&htim2,
+			TIM_CHANNEL_3,
+			1,
+			&leftFlowRateFreq,
+			DMA_STOPPED_TIMEOUT_MS,
+			true,
+			LOW_PULSES_PER_SECOND,
+			HIGH_PULSES_PER_SECOND,
+			MIN_SAMPLES,
+			MAX_SAMPLES
+			) != NO_PULSE_SENSOR_ISSUES) {
+		init_error();
+	}
+
 
 	HAL_GPIO_WritePin(PU1_GPIO_Port, PU1_Pin, 1); // NC
 	HAL_GPIO_WritePin(PU2_GPIO_Port, PU2_Pin, 1); // NC
 	HAL_GPIO_WritePin(PU3_GPIO_Port, PU3_Pin, 1); // NC
 	HAL_GPIO_WritePin(PU4_GPIO_Port, PU4_Pin, 1); // NC
-	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); // SPRL - voltage
-	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 0); // Left Rad Temp In - resistance
-	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 0); // Left Rad Temp Out - resistance
-	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 1); // NC
-	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU5_GPIO_Port, PU5_Pin, 1); // NC
+	HAL_GPIO_WritePin(PU6_GPIO_Port, PU6_Pin, 0); // Left Rad Temp In (inverterWaterTempIn) - resistance
+	HAL_GPIO_WritePin(PU7_GPIO_Port, PU7_Pin, 0); // Left Rad Temp Out (upperWaterTemp) - resistance
+	HAL_GPIO_WritePin(PU8_GPIO_Port, PU8_Pin, 1); // SPRL - voltage
+	HAL_GPIO_WritePin(PU9_GPIO_Port, PU9_Pin, 1); // BTRL - voltage
 	HAL_GPIO_WritePin(PU10_GPIO_Port, PU10_Pin, 1); // NC
 	HAL_GPIO_WritePin(PU11_GPIO_Port, PU11_Pin, 1); // NC
 	HAL_GPIO_WritePin(PU12_GPIO_Port, PU12_Pin, 1); // NC
@@ -127,6 +159,8 @@ void main_loop()
 	}
 
 	update_and_queue_param_float(&wheelSpeedRearLeft_mph, wheel_speed_rear_left);
+	update_and_queue_param_float(&rightFlowRateFreq_hz, rightFlowRateFreq);
+	update_and_queue_param_float(&leftFlowRateFreq_hz, leftFlowRateFreq);
 
 	// DEBUG
 	static U8 last_led = 0;
