@@ -6,39 +6,68 @@ buckets:
         frequency_hz: 100
         parameters:
             # Listed in order of their pins in the sensor hub board side connector
-            brakeTempFrontLeft_C:
+            voltageSensor1_V:
+                ADC: ADC1_IN10
+                sensor: voltage_sensor
+                samples_buffered: 2
+            voltageSensor2_V:
+                ADC: ADC1_IN11
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+            voltageSensor3_V:
+                ADC: ADC1_IN12
+                sensor: brake_temp_sensor
+                samples_buffered: 2
+            voltageSensor4_V:
+                ADC: ADC1_IN13
+                sensor: linear_pos_sensor_50
+                samples_buffered: 2
+            voltageSensor5_V:
                 ADC: ADC1_IN4
-                sensor: brake_temp_sensor
-                samples_buffered: 2
-            shockPosFrontLeft_mm:
-                ADC: ADC1_IN5
-                sensor: linear_pos_sensor_50
-                samples_buffered: 2
-            brakeTempFrontRight_C:
-                ADC: ADC1_IN6
-                sensor: brake_temp_sensor
-                samples_buffered: 2
-            shockPosFrontRight_mm:
-                ADC: ADC1_IN7
-                sensor: linear_pos_sensor_50
-                samples_buffered: 2
-            steeringAngle_deg:
-                ADC: ADC1_IN14
                 sensor: steering_angle_sensor
                 samples_buffered: 2
-            brakePressureRear_psi:
+            voltageSensor6_V:
+                ADC: ADC1_IN5
+                sensor: brake_pressure_sensor
+                samples_buffered: 2
+            voltageSensor7_V:
+                ADC: ADC1_IN6
+                sensor: brake_pressure_sensor
+                samples_buffered: 2
+            voltageSensor8_V:
+                ADC: ADC1_IN7
+                sensor: brake_pressure_sensor
+                samples_buffered: 2
+            voltageSensor9_V:
+                ADC: ADC1_IN14
+                sensor: brake_pressure_sensor
+                samples_buffered: 2
+            voltageSensor10_V:
+                ADC: ADC1_IN15
+                sensor: brake_pressure_sensor
+                samples_buffered: 2
+            voltageSensor11_V:
                 ADC: ADC1_IN8
                 sensor: brake_pressure_sensor
                 samples_buffered: 2
-            # brakePressureRear_psi:
-            #     ADC: ADC1_IN8
-            #     sensor: brake_pressure_sensor
-            #     samples_buffered: 2
-            wheelSpeedFrontRight_mph:
+            voltageSensor12_V:
+                ADC: ADC1_IN9
+                sensor: brake_pressure_sensor
+                samples_buffered: 2
+
+            pulseSensor1_V:
                 ADC: NON_ADC
                 sensor: NON_ADC
                 samples_buffered: 2
-            wheelSpeedFrontLeft_mph:
+            pulseSensor2_V:
+                ADC: NON_ADC
+                sensor: NON_ADC
+                samples_buffered: 2
+            pulseSensor3_V:
+                ADC: NON_ADC
+                sensor: NON_ADC
+                samples_buffered: 2
+            pulseSensor4_V:
                 ADC: NON_ADC
                 sensor: NON_ADC
                 samples_buffered: 2
