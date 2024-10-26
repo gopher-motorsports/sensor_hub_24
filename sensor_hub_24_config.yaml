@@ -8,7 +8,7 @@ buckets:
             # Listed in order of their pins in the sensor hub board side connector
             brakeTempFrontLeft_C:
                 ADC: ADC1_IN4
-                sensor: full_raw_voltage_sensor #brake_temp_sensor
+                sensor: brake_temp_sensor
                 samples_buffered: 2
             shockPosFrontLeft_mm:
                 ADC: ADC1_IN5

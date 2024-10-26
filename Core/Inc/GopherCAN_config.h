@@ -1,7 +1,7 @@
 #ifndef GOPHERCAN_CONFIG_H
 #define GOPHERCAN_CONFIG_H
 
-#define THIS_MODULE_ID 5
+#define THIS_MODULE_ID 9
 
 // RX and TX buffer sizes (bytes)
 #define RX_BUFFER_SIZE 128
