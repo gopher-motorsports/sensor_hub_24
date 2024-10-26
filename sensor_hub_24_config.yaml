@@ -14,22 +14,18 @@ buckets:
                 ADC: ADC1_IN6
                 sensor: rear_right_shock_pos
                 samples_buffered: 2
-            # shockPosRearRight_V:
-            #     ADC: ADC1_IN6
-            #     sensor: full_raw_voltage_sensor
-            #     samples_buffered: 2
-            # manifoldTemp_C:
-            #     ADC: ADC1_IN6
-            #     sensor: combined_temp_sensor
-            #     samples_buffered: 2
-            # manifoldPressure_kPa:
-            #     ADC: ADC1_IN7
-            #     sensor: combined_pressure_sensor
-            #     samples_buffered: 2
-            # shockPosRearRight_mm:
-            #     ADC: ADC1_IN14
-            #     sensor: linear_pos_sensor_50
-            #     samples_buffered: 2
+            motorWaterPressure1_psi:
+                ADC: ADC1_IN5
+                sensor: pressure_sensor_absolute
+                samples_buffered: 2
+            motorWaterTempOut_psi:
+                ADC: ADC1_IN7
+                sensor: temp_sensor
+                samples_buffered: 2
+            motorWaterTempIn_psi:
+                ADC: ADC1_IN14
+                sensor: temp_sensor
+                samples_buffered: 2
             wheelSpeedRearRight_mph:
                 ADC: NON_ADC
                 sensor: NON_ADC
